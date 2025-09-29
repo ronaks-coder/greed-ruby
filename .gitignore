@@ -1,0 +1,8 @@
+/.bundle/
+/.yardoc
+/_yardoc
+/coverage/
+/.DS_Store
+/.env
+/.vscode/
+vendor/bundle

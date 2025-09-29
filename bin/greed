@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/greed/game'
+require_relative '../lib/greed/player'
+
+include Greed
+
+if __FILE__ == $0
+  puts "Welcome to GREED (CLI Ruby)"
+
+  print "Number of players (2+): "
+  num = (STDIN.gets.chomp.to_i rescue 0)
+  if num < 2
+    puts "Need at least 2 players. Exiting."
+    exit
+  end
+
+  players = []
+  num.times do |i|
+    print "Name for player #{i+1}: "
+    name = STDIN.gets.chomp.strip
+    name = "Player#{i+1}" if name.empty?
+    players << Player.new(name)
+  end
+
+  game = Game.new(players)
+  game.play
+end
